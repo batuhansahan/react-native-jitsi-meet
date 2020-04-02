@@ -55,7 +55,11 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     }
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
+                            .setWelcomePageEnabled(false)
                             .setAudioOnly(false)
+                            .setFeatureFlag("pip.enabled",false)
+                            .setFeatureFlag("calendar.enabled",false)
+                            .setFeatureFlag("call-integration.enabled",false)
                             .setUserInfo(_userInfo)
                             .build();
                     mJitsiMeetViewReference.getJitsiMeetView().join(options);
