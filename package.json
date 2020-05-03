@@ -1,7 +1,7 @@
 {
   "name": "react-native-jitsi-meet",
   "description": "Jitsi Meet SDK wrapper for React Native.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": {
     "name": "Batuhan Şahan",
     "email": "imbatuhansahan@gmail.com"
