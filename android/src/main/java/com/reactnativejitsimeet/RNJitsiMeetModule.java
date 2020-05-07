@@ -60,6 +60,15 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setFeatureFlag("pip.enabled",false)
                             .setFeatureFlag("calendar.enabled",false)
                             .setFeatureFlag("call-integration.enabled",false)
+                            .setFeatureFlag("add-people.enabled",false)
+                            .setFeatureFlag("close-captions.enabled",false)
+                            .setFeatureFlag("chat.enabled",false)
+                            .setFeatureFlag("live-streaming.enabled",false)
+                            .setFeatureFlag("meeting-name.enabled",false)
+                            .setFeatureFlag("invite.enabled",false)
+                            .setFeatureFlag("meeting-password.enabled",false)
+                            .setFeatureFlag("raise-hand.enabled",false)
+                            .setFeatureFlag("recording.enabled",false)
                             .setUserInfo(_userInfo)
                             .build();
                     mJitsiMeetViewReference.getJitsiMeetView().join(options);
