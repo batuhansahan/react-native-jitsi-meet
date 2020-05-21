@@ -63,6 +63,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setFeatureFlag("add-people.enabled",false)
                             .setFeatureFlag("close-captions.enabled",false)
                             .setFeatureFlag("chat.enabled",false)
+                            .setFeatureFlag("toolbox.enabled",true)
                             .setFeatureFlag("live-streaming.enabled",false)
                             .setFeatureFlag("meeting-name.enabled",false)
                             .setFeatureFlag("invite.enabled",false)
@@ -109,6 +110,54 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setFeatureFlag("add-people.enabled",false)
                             .setFeatureFlag("close-captions.enabled",false)
                             .setFeatureFlag("chat.enabled",false)
+                            .setFeatureFlag("toolbox.enabled",true)
+                            .setFeatureFlag("live-streaming.enabled",false)
+                            .setFeatureFlag("meeting-name.enabled",false)
+                            .setFeatureFlag("invite.enabled",false)
+                            .setFeatureFlag("meeting-password.enabled",false)
+                            .setFeatureFlag("raise-hand.enabled",false)
+                            .setFeatureFlag("recording.enabled",false)
+                            .setUserInfo(_userInfo)
+                            .build();
+                    mJitsiMeetViewReference.getJitsiMeetView().join(options);
+                }
+            }
+        });
+    }
+
+    @ReactMethod
+    public void onlyAudioCall(String url, ReadableMap userInfo) {
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (mJitsiMeetViewReference.getJitsiMeetView() != null) {
+                    RNJitsiMeetUserInfo _userInfo = new RNJitsiMeetUserInfo();
+                    if (userInfo != null) {
+                        if (userInfo.hasKey("displayName")) {
+                            _userInfo.setDisplayName(userInfo.getString("displayName"));
+                          }
+                          if (userInfo.hasKey("email")) {
+                            _userInfo.setEmail(userInfo.getString("email"));
+                          }
+                          if (userInfo.hasKey("avatar")) {
+                            String avatarURL = userInfo.getString("avatar");
+                            try {
+                                _userInfo.setAvatar(new URL(avatarURL));
+                            } catch (MalformedURLException e) {
+                            }
+                          }
+                    }
+                    RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
+                            .setRoom(url)
+                            .setAudioOnly(true)
+                            .setWelcomePageEnabled(false)
+                            .setFeatureFlag("pip.enabled",false)
+                            .setFeatureFlag("calendar.enabled",false)
+                            .setFeatureFlag("call-integration.enabled",false)
+                            .setFeatureFlag("add-people.enabled",false)
+                            .setFeatureFlag("close-captions.enabled",false)
+                            .setFeatureFlag("chat.enabled",false)
+                            .setFeatureFlag("toolbox.enabled",false)
                             .setFeatureFlag("live-streaming.enabled",false)
                             .setFeatureFlag("meeting-name.enabled",false)
                             .setFeatureFlag("invite.enabled",false)
