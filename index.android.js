@@ -9,17 +9,20 @@ export const JitsiMeetModule = NativeModules.RNJitsiMeetModule
 const call = JitsiMeetModule.call;
 const audioCall = JitsiMeetModule.audioCall;
 const onlyAudioCall = JitsiMeetModule.onlyAudioCall;
-JitsiMeetModule.call = (url, userInfo) => {
+JitsiMeetModule.call = (url, userInfo, config) => {
   userInfo = userInfo || {};
-  call(url, userInfo);
+  config = config || {};
+  call(url, userInfo, config);
 }
-JitsiMeetModule.audioCall = (url, userInfo) => {
+JitsiMeetModule.audioCall = (url, userInfo, config) => {
   userInfo = userInfo || {};
-  audioCall(url, userInfo);
+  config = config || {};
+  audioCall(url, userInfo, config);
 }
-JitsiMeetModule.onlyAudioCall = (url, userInfo) => {
+JitsiMeetModule.onlyAudioCall = (url, userInfo, config) => {
   userInfo = userInfo || {};
-  onlyAudioCall(url, userInfo);
+  config = config || {};
+  onlyAudioCall(url, userInfo, config);
 }
 export default JitsiMeetModule;
 

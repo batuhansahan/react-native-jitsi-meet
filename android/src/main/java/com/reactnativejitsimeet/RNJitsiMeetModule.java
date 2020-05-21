@@ -32,7 +32,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void call(String url, ReadableMap userInfo) {
+    public void call(String url, ReadableMap userInfo, ReadableMap config) {
         UiThreadUtil.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -57,13 +57,13 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setRoom(url)
                             .setWelcomePageEnabled(false)
                             .setAudioOnly(false)
+                            .setSubject(config.getString("subject"))
                             .setFeatureFlag("pip.enabled",false)
                             .setFeatureFlag("calendar.enabled",false)
                             .setFeatureFlag("call-integration.enabled",false)
                             .setFeatureFlag("add-people.enabled",false)
                             .setFeatureFlag("close-captions.enabled",false)
                             .setFeatureFlag("chat.enabled",false)
-                            .setFeatureFlag("toolbox.enabled",true)
                             .setFeatureFlag("live-streaming.enabled",false)
                             .setFeatureFlag("meeting-name.enabled",false)
                             .setFeatureFlag("invite.enabled",false)
@@ -79,7 +79,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void audioCall(String url, ReadableMap userInfo) {
+    public void audioCall(String url, ReadableMap userInfo, ReadableMap config) {
         UiThreadUtil.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -103,6 +103,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
                             .setAudioOnly(true)
+                            .setSubject(config.getString("subject"))
                             .setWelcomePageEnabled(false)
                             .setFeatureFlag("pip.enabled",false)
                             .setFeatureFlag("calendar.enabled",false)
@@ -110,7 +111,6 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setFeatureFlag("add-people.enabled",false)
                             .setFeatureFlag("close-captions.enabled",false)
                             .setFeatureFlag("chat.enabled",false)
-                            .setFeatureFlag("toolbox.enabled",true)
                             .setFeatureFlag("live-streaming.enabled",false)
                             .setFeatureFlag("meeting-name.enabled",false)
                             .setFeatureFlag("invite.enabled",false)
@@ -126,7 +126,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void onlyAudioCall(String url, ReadableMap userInfo) {
+    public void onlyAudioCall(String url, ReadableMap userInfo, ReadableMap config) {
         UiThreadUtil.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -150,6 +150,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
                             .setAudioOnly(true)
+                            .setSubject(config.getString("subject"))
                             .setWelcomePageEnabled(false)
                             .setFeatureFlag("pip.enabled",false)
                             .setFeatureFlag("calendar.enabled",false)
@@ -157,7 +158,6 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             .setFeatureFlag("add-people.enabled",false)
                             .setFeatureFlag("close-captions.enabled",false)
                             .setFeatureFlag("chat.enabled",false)
-                            .setFeatureFlag("toolbox.enabled",false)
                             .setFeatureFlag("live-streaming.enabled",false)
                             .setFeatureFlag("meeting-name.enabled",false)
                             .setFeatureFlag("invite.enabled",false)

@@ -37,6 +37,8 @@ android {
 
 repositories {
   maven {
+    
+    // url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
     url("$rootDir/../node_modules/react-native-jitsi-meet/jitsi-sdk")
     // url "https://github.com/batuhansahan/jitsi-maven-repository/raw/android-sdk-2.6.1-fix5/releases"
       // url "https://github.com/batuhansahan/jitsi-maven-repository/raw/android-sdk-2.5.0-fix7/releases"

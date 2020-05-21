@@ -181,6 +181,7 @@ public class RNJitsiMeetConferenceOptions implements Parcelable {
             return this;
         }
 
+
         public Builder setFeatureFlag(String flag, boolean value) {
             this.featureFlags.putBoolean(flag, value);
 
@@ -212,7 +213,6 @@ public class RNJitsiMeetConferenceOptions implements Parcelable {
          */
         public RNJitsiMeetConferenceOptions build() {
             RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions();
-
             options.serverURL = this.serverURL;
             options.room = this.room;
             options.subject = this.subject;
