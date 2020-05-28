@@ -102,6 +102,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     }
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
+                            .setAudioOnly(false)
                             .setVideoMuted(true)
                             .setSubject(config.getString("subject"))
                             .setWelcomePageEnabled(false)
@@ -149,6 +150,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     }
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
+                            .setAudioOnly(false)
                             .setVideoMuted(true)
                             .setSubject(config.getString("subject"))
                             .setWelcomePageEnabled(false)
