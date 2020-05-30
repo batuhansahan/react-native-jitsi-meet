@@ -150,7 +150,8 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     }
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
-                            .setAudioOnly(true)
+                            .setAudioOnly(false)
+                            .setVideoMuted(true)
                             .setSubject(config.getString("subject"))
                             .setWelcomePageEnabled(false)
                             .setFeatureFlag("pip.enabled",false)
